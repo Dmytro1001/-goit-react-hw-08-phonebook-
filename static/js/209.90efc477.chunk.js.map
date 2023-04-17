@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/209.90efc477.chunk.js","mappings":"0MAAe,SAASA,IACtB,OACE,0BACE,4DAGL,C","sources":["pages/PhoneBook.js"],"sourcesContent":["export default function PhoneBook() {\n  return (\n    <div>\n      <p>There will be a Phonebook here!</p>\n    </div>\n  );\n}\n"],"names":["PhoneBook"],"sourceRoot":""}
