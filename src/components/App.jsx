@@ -11,7 +11,7 @@ import { Layout } from './Layout/Layout';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 
-const HomePage = lazy(() => import('pages/Home'));
+const HomePage = lazy(() => import('pages/Home/Home'));
 const RegisterPage = lazy(() => import('pages/Register'));
 const LoginPage = lazy(() => import('pages/Login'));
 const PhoneBookPage = lazy(() => import('pages/PhoneBook'));

@@ -1,13 +1,5 @@
 import styled from '@emotion/styled';
 
-export const Item = styled.li`
-  padding: 10px;
-`;
-
-export const Button = styled.button`
-  margin-left: 5px;
-`;
-
 export const Container = styled.div`
   margin-top: 10px;
   font-family: 'Roboto', sans-serif;
