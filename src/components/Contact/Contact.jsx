@@ -3,7 +3,7 @@ import { useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
 import {
-  Grid,
+  // Grid,
   IconButton,
   ListItem,
   Avatar,
@@ -69,49 +69,64 @@ export const ContactItem = () => {
   return (
     <Container>
       <List>
-        <Grid
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {contacts.map(({ id, name, number }) => (
-            <ListItem key={id}>
-              <ListItemAvatar>
-                <Avatar {...stringAvatar(`${name}`)} />
-              </ListItemAvatar>
+        {contacts.map(({ id, name, number }) => (
+          <ListItem
+            key={id}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              border: '1px solid gray ',
+              boxShadow: '5px 5px 15px 5px rgba(0, 0, 0, 0)',
+              borderRadius: '10px',
+            }}
+          >
+            <ListItemAvatar>
+              <Avatar {...stringAvatar(`${name}`)} />
+            </ListItemAvatar>
 
-              <Name>{name}:</Name>
-              <Number>{number}</Number>
+            <Name>{name}:</Name>
+            <Number>{number}</Number>
 
-              <Stack direction="row" spacing={1} sx={{ ml: 5 }}>
-                <IconButton
-                  edge="start"
-                  aria-label="change"
-                  id={id}
-                  color="primary"
-                  onClick={() => handleOpen({ id, name, number })}
-                >
-                  <CreateIcon />
-                </IconButton>
-                <IconButton
-                  edge="end"
-                  aria-label="delete"
-                  id={id}
-                  color="error"
-                  onClick={() => dispatch(deleteContact(id))}
-                >
-                  <DeleteIcon />
-                </IconButton>
-              </Stack>
-            </ListItem>
-          ))}
-          {modal && (
-            <EditContact item={selectedContact} onClose={handleClose} />
-          )}
-        </Grid>
+            <Stack direction="row" spacing={1} sx={{ ml: 5 }}>
+              <IconButton
+                edge="start"
+                aria-label="change"
+                id={id}
+                color="gray"
+                onClick={() => handleOpen({ id, name, number })}
+                sx={{
+                  '&:hover': {
+                    color: '#2196f3',
+                  },
+                  '&:focus': {
+                    color: '#2196f3',
+                  },
+                }}
+              >
+                <CreateIcon />
+              </IconButton>
+              <IconButton
+                edge="end"
+                aria-label="delete"
+                id={id}
+                color="gray"
+                onClick={() => dispatch(deleteContact(id))}
+                sx={{
+                  '&:hover': {
+                    color: '#f44336',
+                  },
+                  '&:focus': {
+                    color: '#f44336',
+                  },
+                }}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </Stack>
+          </ListItem>
+        ))}
+        {modal && <EditContact item={selectedContact} onClose={handleClose} />}
       </List>
     </Container>
   );

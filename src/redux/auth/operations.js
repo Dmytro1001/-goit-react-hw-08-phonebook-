@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { clear } from '@testing-library/user-event/dist/clear';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 

@@ -6,9 +6,14 @@ export const Container = styled.div`
 `;
 
 export const List = styled.ul`
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   justify-content: space-between;
+  padding-left: 0;
+  padding: 10px;
+  /* height: auto;
+  overflow-y: scroll; */
 `;
 
 export const Name = styled.span`
