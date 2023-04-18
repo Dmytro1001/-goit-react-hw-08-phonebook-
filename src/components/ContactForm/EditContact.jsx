@@ -11,13 +11,8 @@ import {
 } from './ContactForm.module';
 import { useDispatch, useSelector } from 'react-redux';
 import { editContact } from 'redux/contacts/operationsContacts';
-import { selectUserContacts } from 'redux/contacts/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import { ModalForm } from 'components/Modal/Modal';
-
-// const initialValues = {
-//   name: '',
-//   number: '',
-// };
 
 const phoneRegExp =
   /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
@@ -36,24 +31,24 @@ const SignupSchema = Yup.object().shape({
 
 export const EditContact = ({ item, onClose }) => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectUserContacts);
+  const contacts = useSelector(selectContacts);
 
   // const handleSubmit = (values, actions) => {
-  //   const nameExists = contacts.find(contact =>
-  //     // contact.name.toLowerCase() === values.name.toLowerCase() &&
-  //     // contact.id !== item.id
-  //     contact.name.toLowerCase().includes(values.name.toLowerCase())
-  //   );
-
-  //   if (nameExists) {
-  //     return alert(`${values.name} is already in contacts!`);
+  //   if (
+  //     contacts.find(contact =>
+  //       contact.name.toLowerCase().includes(values.name.toLowerCase())
+  //     )
+  //   ) {
+  //     window.alert(`${values.name} is already in contacts!`);
+  //   } else {
+  //     dispatch(editContact(values));
+  //     actions.resetForm();
+  //     dispatch(fetchContacts());
   //   }
-  //   actions.resetForm();
-  //   dispatch(editContact(values));
-  //   onClose();
   // };
-
+  console.log(item);
   const handleSubmit = (values, actions) => {
+    console.log(values);
     const nameExists = contacts.find(
       contact =>
         contact.name.toLowerCase().includes(values.name.toLowerCase()) &&

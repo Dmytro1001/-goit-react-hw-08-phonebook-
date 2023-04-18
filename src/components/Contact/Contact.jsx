@@ -25,6 +25,7 @@ export const ContactItem = () => {
   const handleOpen = contact => {
     setSelectedContact(contact);
     setModal(true);
+    console.log(contact);
   };
   const handleClose = () => setModal(false);
 
@@ -91,7 +92,7 @@ export const ContactItem = () => {
                   aria-label="change"
                   id={id}
                   color="primary"
-                  onClick={() => handleOpen({ name, number })}
+                  onClick={() => handleOpen({ id, name, number })}
                 >
                   <CreateIcon />
                 </IconButton>
