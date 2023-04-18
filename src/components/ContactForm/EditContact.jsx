@@ -10,14 +10,14 @@ import {
   ErrorMessage,
 } from './ContactForm.module';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contacts/operationsContacts';
+import { editContact } from 'redux/contacts/operationsContacts';
 import { selectUserContacts } from 'redux/contacts/selectors';
 import { ModalForm } from 'components/Modal/Modal';
 
-const initialValues = {
-  name: '',
-  number: '',
-};
+// const initialValues = {
+//   name: '',
+//   number: '',
+// };
 
 const phoneRegExp =
   /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
@@ -34,31 +34,48 @@ const SignupSchema = Yup.object().shape({
     .required('A phone number is required'),
 });
 
-export const ContactForm = ({ onClose }) => {
+export const EditContact = ({ item, onClose }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectUserContacts);
 
+  // const handleSubmit = (values, actions) => {
+  //   const nameExists = contacts.find(contact =>
+  //     // contact.name.toLowerCase() === values.name.toLowerCase() &&
+  //     // contact.id !== item.id
+  //     contact.name.toLowerCase().includes(values.name.toLowerCase())
+  //   );
+
+  //   if (nameExists) {
+  //     return alert(`${values.name} is already in contacts!`);
+  //   }
+  //   actions.resetForm();
+  //   dispatch(editContact(values));
+  //   onClose();
+  // };
+
   const handleSubmit = (values, actions) => {
-    const nameExists = contacts.find(contact =>
-      contact.name.toLowerCase().includes(values.name.toLowerCase())
+    const nameExists = contacts.find(
+      contact =>
+        contact.name.toLowerCase().includes(values.name.toLowerCase()) &&
+        contact.id !== item.id
     );
 
     if (nameExists) {
       return alert(`${values.name} is already in contacts!`);
     }
     actions.resetForm();
-    dispatch(
-      addContact({
-        ...values,
-      })
-    );
+    dispatch(editContact(values));
     onClose();
   };
 
   return (
     <ModalForm onClose={onClose}>
       <Formik
-        initialValues={initialValues}
+        initialValues={{
+          id: item.id,
+          name: item.name,
+          number: item.number,
+        }}
         validationSchema={SignupSchema}
         onSubmit={handleSubmit}
       >
@@ -82,6 +99,6 @@ export const ContactForm = ({ onClose }) => {
   );
 };
 
-ContactForm.propTypes = {
+EditContact.propTypes = {
   onClose: PropTypes.func.isRequired,
 };

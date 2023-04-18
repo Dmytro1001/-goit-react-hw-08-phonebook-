@@ -18,7 +18,7 @@ export const HeaderAppBar = () => {
           fontfamily: 'Raleway',
         }}
       >
-        <Container maxWidth={'sm'}>
+        <Container maxWidth={'lg'}>
           <Toolbar
             disableGutters
             aria-label="ToolBar"

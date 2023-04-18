@@ -35,12 +35,19 @@ export const UserMenu = () => {
           sx={{
             backgroundColor: 'white',
             marginLeft: '5px',
+            '&:hover': {
+              color: 'white',
+              backgroundColor: '#1976d2',
+            },
           }}
           startIcon={<AccountCircle />}
         >
           <Typography
             component="h3"
-            sx={{ fontfamily: 'Raleway', textTransform: 'capitalize' }}
+            sx={{
+              fontfamily: 'Raleway',
+              textTransform: 'capitalize',
+            }}
           >
             Welcome, {user.name}
           </Typography>

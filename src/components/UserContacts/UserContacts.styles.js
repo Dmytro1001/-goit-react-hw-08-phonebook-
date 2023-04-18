@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding-top: 0px;
+export const Container = styled.div`
+  text-align: center;
+  margin: 10px auto;
+`;
+
+export const H1 = styled.h1`
+  color: #1976d2;
 `;

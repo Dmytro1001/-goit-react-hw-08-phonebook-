@@ -1,4 +1,5 @@
 // import PropTypes from 'prop-types';
+import { useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
 import {
@@ -13,10 +14,24 @@ import { useDispatch } from 'react-redux';
 import { Name, Number, Container, List } from './Contact.styles';
 import { deleteContact } from 'redux/contacts/operationsContacts';
 import { useContacts } from 'hooks/useContacts';
+import { EditContact } from 'components/ContactForm/EditContact';
 
 export const ContactItem = () => {
   const dispatch = useDispatch();
   const contacts = useContacts();
+  const [modal, setModal] = useState(false);
+  const [selectedContact, setSelectedContact] = useState(null);
+
+  const handleOpen = contact => {
+    setSelectedContact(contact);
+    setModal(true);
+  };
+  const handleClose = () => setModal(false);
+
+  contacts.sort(function (firstName, secondName) {
+    return firstName.name.localeCompare(secondName.name);
+  });
+
   function stringToColor(string) {
     let hash = 0;
     let i;
@@ -76,6 +91,7 @@ export const ContactItem = () => {
                   aria-label="change"
                   id={id}
                   color="primary"
+                  onClick={() => handleOpen({ name, number })}
                 >
                   <CreateIcon />
                 </IconButton>
@@ -91,6 +107,9 @@ export const ContactItem = () => {
               </Stack>
             </ListItem>
           ))}
+          {modal && (
+            <EditContact item={selectedContact} onClose={handleClose} />
+          )}
         </Grid>
       </List>
     </Container>
