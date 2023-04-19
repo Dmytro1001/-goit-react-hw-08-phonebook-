@@ -1,4 +1,3 @@
-// import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
 import { Nav, HomePageLink, ContactsLink } from './Navigation.styles';
 import { RiContactsBookLine } from 'react-icons/ri';

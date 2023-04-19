@@ -33,20 +33,6 @@ export const EditContact = ({ item, onClose }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  // const handleSubmit = (values, actions) => {
-  //   if (
-  //     contacts.find(contact =>
-  //       contact.name.toLowerCase().includes(values.name.toLowerCase())
-  //     )
-  //   ) {
-  //     window.alert(`${values.name} is already in contacts!`);
-  //   } else {
-  //     dispatch(editContact(values));
-  //     actions.resetForm();
-  //     dispatch(fetchContacts());
-  //   }
-  // };
-  console.log(item);
   const handleSubmit = (values, actions) => {
     console.log(values);
     const nameExists = contacts.find(
@@ -95,5 +81,12 @@ export const EditContact = ({ item, onClose }) => {
 };
 
 EditContact.propTypes = {
+  item: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      numder: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   onClose: PropTypes.func.isRequired,
 };

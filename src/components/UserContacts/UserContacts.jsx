@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
+import { Loader } from 'components/Loader/Loader';
+// import { color } from 'framer-motion';
 
 export default function UserContacts() {
   const dispatch = useDispatch();
@@ -26,7 +28,20 @@ export default function UserContacts() {
 
   return (
     <Container>
-      <Button onClick={handleOpen} startIcon={<PersonAddIcon />}>
+      <Button
+        onClick={handleOpen}
+        startIcon={<PersonAddIcon />}
+        sx={{
+          color: '#2196f3',
+          border: '1px solid #2196f3',
+          borderRadius: '10px',
+          padding: '10px',
+          paddingInline: '30px',
+
+          ':hover': { color: 'white', backgroundColor: '#2196f3' },
+          ':focus': { color: 'white', backgroundColor: '#2196f3' },
+        }}
+      >
         Add Contacts
       </Button>
       {modal && <ContactForm onClose={handleClose} />}
@@ -36,9 +51,7 @@ export default function UserContacts() {
           Contacts
         </Typography>
         <Filter />
-        {isLoading && !error && (
-          <p>Please wait while the data is being checked.</p>
-        )}
+        {isLoading && !error && <Loader />}
         <ContactItem />
       </ContactList>
     </Container>

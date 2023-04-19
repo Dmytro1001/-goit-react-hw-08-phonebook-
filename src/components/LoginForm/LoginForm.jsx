@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-import { Link } from './LoginForm.styles';
+import { Link, Text } from './LoginForm.styles';
 
 const theme = createTheme();
 
@@ -92,26 +92,19 @@ export const LoginForm = () => {
             >
               Sign In
             </Button>
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="center">
               <Grid item>
-                <Link to="/register">{"Don't have an account? Sign Up"}</Link>
+                <Text>
+                  Don't have an account?
+                  <Link to="/register" variant="body2">
+                    Sign Up
+                  </Link>
+                </Text>
               </Grid>
             </Grid>
           </FormControl>
         </Box>
       </Container>
     </ThemeProvider>
-
-    // <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-    //   <label className={css.label}>
-    //     Email
-    //     <input type="email" name="email" />
-    //   </label>
-    //   <label className={css.label}>
-    //     Password
-    //     <input type="password" name="password" />
-    //   </label>
-    //   <button type="submit">Log In</button>
-    // </form>
   );
 };

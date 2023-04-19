@@ -11,7 +11,7 @@ export default function Home() {
   const { isLoggedIn } = useAuth();
 
   return (
-    <div>
+    <>
       <HomePageContainer>
         <WelcomeMessage> Welcome to Phonebook! </WelcomeMessage>
         {!isLoggedIn && (
@@ -35,6 +35,6 @@ export default function Home() {
           </Text>
         )}
       </HomePageContainer>
-    </div>
+    </>
   );
 }

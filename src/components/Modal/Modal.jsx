@@ -2,12 +2,6 @@ import { Overlay, ModalWindow } from './Modal.styles';
 import { useEffect } from 'react';
 
 export const ModalForm = ({ children, onClose }) => {
-  // const { onClose } = props;
-  // const onEscapeDown = e => {
-  //   if (e.code !== 'Escape') return;
-  //   onClose();
-  // };
-
   useEffect(() => {
     const onEscapeDown = e => {
       if (e.code !== 'Escape') return;

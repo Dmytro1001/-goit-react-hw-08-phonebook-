@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PersonAddTwoToneIcon from '@mui/icons-material/PersonAddTwoTone';
-import { Link } from './RegisterForm.styles';
+import { Link, Text } from './RegisterForm.styles';
 import toast from 'react-hot-toast';
 
 const theme = createTheme();
@@ -110,11 +110,14 @@ export const RegisterForm = () => {
             >
               Sign Up
             </Button>
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="center">
               <Grid item>
-                <Link to="/login" variant="body2">
-                  Already have an account? Sign in
-                </Link>
+                <Text>
+                  Already have an account?
+                  <Link to="/login" variant="body2">
+                    Sign in
+                  </Link>
+                </Text>
               </Grid>
             </Grid>
           </FormControl>

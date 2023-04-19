@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { logOut } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
 import { AccountCircle } from '@mui/icons-material';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { Box, Button, Menu, MenuItem, Typography } from '@mui/material';
 
 export const UserMenu = () => {
@@ -38,6 +39,16 @@ export const UserMenu = () => {
             '&:hover': {
               color: 'white',
               backgroundColor: '#1976d2',
+              ':hover': {
+                color: 'white',
+                backgroundColor: '#1976d2',
+                border: '2px solid #ffffff',
+              },
+              ':focus': {
+                color: 'white',
+                backgroundColor: '#1976d2',
+                border: '2px solid #ffffff',
+              },
             },
           }}
           startIcon={<AccountCircle />}
@@ -45,7 +56,7 @@ export const UserMenu = () => {
           <Typography
             component="h3"
             sx={{
-              fontfamily: 'Raleway',
+              fontfamily: 'Roboto',
               textTransform: 'capitalize',
             }}
           >
@@ -69,37 +80,45 @@ export const UserMenu = () => {
         >
           <Typography
             component="h3"
-            sx={{ fontfamily: 'Raleway', margin: '5px' }}
+            sx={{ fontfamily: 'Roboto', margin: '5px' }}
           >
-            {user.email}
+            Nickname: {user.name}
+          </Typography>
+          <Typography
+            component="h3"
+            sx={{ fontfamily: 'Roboto', margin: '5px' }}
+          >
+            Email: {user.email}
           </Typography>
 
           <MenuItem
             onClick={() => dispatch(logOut())}
             sx={{
-              backgroundColor: 'lightBlue',
+              backgroundColor: '#e7e7e7',
+              color: '#2196f3',
+              border: '1px solid #2196f3',
               borderRadius: '10px',
               margin: '5px',
               justifyContent: 'center',
 
               '&:hover': {
                 color: 'white',
-                backgroundColor: 'blue',
+                backgroundColor: '#2196f3',
               },
+              ':focus': { color: 'white', backgroundColor: '#2196f3' },
             }}
+            // endIcon={<LogoutIcon />}
           >
-            <Typography component="h3" sx={{ fontfamily: 'Raleway' }}>
+            <Typography
+              component="h3"
+              sx={{ fontfamily: 'Roboto', marginRight: '5px' }}
+            >
               Log out
             </Typography>
+            <LogoutIcon />
           </MenuItem>
         </Menu>
       </div>
     </Box>
-    // <div className={css.wrapper}>
-    //   <p className={css.username}>Welcome, {user.name}</p>
-    //   <button type="button" onClick={() => dispatch(logOut())}>
-    //     Logout
-    //   </button>
-    // </div>
   );
 };

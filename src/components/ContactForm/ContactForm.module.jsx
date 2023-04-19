@@ -9,6 +9,8 @@ export const FormField = styled.label`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  text-align: start;
+  font-size: 20px;
 `;
 
 export const Form = styled(FormicForm)`
@@ -22,10 +24,13 @@ export const Form = styled(FormicForm)`
 `;
 
 export const Field = styled(FormicField)`
-  height: 30px;
+  height: 40px;
   padding-left: 8px;
   padding-right: 8px;
   border-radius: 5px;
+  &:focus {
+    outline-color: #2196f3;
+  }
 `;
 
 export const SubmitBtn = styled.button`
@@ -37,7 +42,7 @@ export const SubmitBtn = styled.button`
   color: #000000;
   cursor: pointer;
   display: inline-block;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 0;
   line-height: 1em;
@@ -49,7 +54,8 @@ export const SubmitBtn = styled.button`
   text-align: center;
   text-decoration: none;
   text-rendering: geometricprecision;
-  transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1),
+  transition: color 300ms cubic-bezier(0.694, 0, 0.335, 1),
+    opacity 300ms cubic-bezier(0.694, 0, 0.335, 1),
     background-color 100ms cubic-bezier(0.694, 0, 0.335, 1),
     color 100ms cubic-bezier(0.694, 0, 0.335, 1);
   user-select: none;
@@ -61,7 +67,7 @@ export const SubmitBtn = styled.button`
   &:before {
     animation: opacityFallbackOut 0.5s step-end forwards;
     backface-visibility: hidden;
-    background-color: #ebebeb;
+    background-color: #2196f3;
     clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
     content: '';
     height: 100%;

@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+const viewportHeight = document.documentElement.clientHeight;
+
 export const Container = styled.div`
   margin-top: 10px;
   font-family: 'Roboto', sans-serif;
@@ -9,11 +11,24 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  justify-content: space-between;
   padding-left: 0;
   padding: 10px;
-  /* height: auto;
-  overflow-y: scroll; */
+  height: calc(${viewportHeight}px - 305px);
+  overflow-y: scroll;
+
+  margin-bottom: auto;
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(180deg, #00c6fb, #005bea);
+  }
 `;
 
 export const Name = styled.span`
