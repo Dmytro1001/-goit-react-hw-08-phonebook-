@@ -10,7 +10,7 @@ import {
   Stack,
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { Name, Number, Container, List } from './Contact.styles';
+import { Name, Number, Container, List, Message } from './Contact.styles';
 import { deleteContact } from 'redux/contacts/operationsContacts';
 import { useContacts } from 'hooks/useContacts';
 import { EditContact } from 'components/ContactForm/EditContact';
@@ -64,7 +64,7 @@ export const ContactItem = () => {
     };
   }
 
-  return (
+  return contacts.length > 0 ? (
     <Container>
       <List>
         {contacts.map(({ id, name, number }) => (
@@ -127,6 +127,8 @@ export const ContactItem = () => {
         {modal && <EditContact item={selectedContact} onClose={handleClose} />}
       </List>
     </Container>
+  ) : (
+    <Message>Unfortunately, the contact list is empty!</Message>
   );
 };
 

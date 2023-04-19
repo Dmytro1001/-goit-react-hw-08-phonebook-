@@ -42,3 +42,10 @@ export const Number = styled.span`
   font-weight: 500;
   font-size: 16px;
 `;
+
+export const Message = styled.p`
+  display: block;
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 15px;
+`;
