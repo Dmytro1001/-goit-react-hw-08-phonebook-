@@ -8,7 +8,7 @@ import {
   Field,
   SubmitBtn,
   ErrorMessage,
-} from './ContactForm.module';
+} from './ContactForm.styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/operationsContacts';
 import { selectUserContacts } from 'redux/contacts/selectors';

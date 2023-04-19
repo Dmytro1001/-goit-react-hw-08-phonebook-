@@ -8,6 +8,7 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import GlobalStyles from './GlobalStyles';
 import { Loader } from './Loader/Loader';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 const HomePage = lazy(() => import('pages/Home/Home'));
 const RegisterPage = lazy(() => import('pages/Register'));
@@ -54,6 +55,7 @@ export const App = () => {
             }
           />
         </Route>
+        <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>
       <GlobalStyles />
     </>

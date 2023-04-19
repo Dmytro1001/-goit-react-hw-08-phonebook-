@@ -18,7 +18,7 @@ export const List = styled.ul`
 
   margin-bottom: auto;
   &::-webkit-scrollbar {
-    width: 7px;
+    width: 5px;
   }
   &::-webkit-scrollbar-track {
     box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
@@ -27,7 +27,7 @@ export const List = styled.ul`
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: linear-gradient(180deg, #00c6fb, #005bea);
+    background: linear-gradient(180deg, #2196f3, #1976d2);
   }
 `;
 

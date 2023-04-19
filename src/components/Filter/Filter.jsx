@@ -42,15 +42,6 @@ export const Filter = () => {
         </Box>
       </Container>
     </>
-    // <FilterTitle>
-    //   Find contacts by name
-    //   <FilterInput
-    //     type="text"
-    //     value={filter}
-    //     onChange={changeFilter}
-    //     placeholder="Contact name"
-    //   />
-    // </FilterTitle>
   );
 };
 

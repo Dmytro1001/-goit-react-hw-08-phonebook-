@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Overlay, ModalWindow } from './Modal.styles';
 import { useEffect } from 'react';
 
@@ -24,4 +25,8 @@ export const ModalForm = ({ children, onClose }) => {
       <ModalWindow>{children}</ModalWindow>
     </Overlay>
   );
+};
+
+ModalForm.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };

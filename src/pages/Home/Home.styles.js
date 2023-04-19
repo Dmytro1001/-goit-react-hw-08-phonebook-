@@ -12,8 +12,8 @@ export const HomePageContainer = styled.div`
 export const WelcomeMessage = styled.h1`
   color: rgb(3, 155, 229);
   font-size: 60px;
-  font-family: 'Raleway', sans-serif;
-  margin-top: 30px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
 `;
 
 export const LoginLink = styled(NavLink)`
